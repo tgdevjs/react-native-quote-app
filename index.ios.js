@@ -9,22 +9,25 @@ import {
   Image,
 } from 'react-native';
 
-const zenImage = require('./assets/zen.png');
+import Quote from './src/components/Quote.js';
+
 
 class QuoteApp extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity style={styles.button} onPress={() => { alert('I was pressed!');}}>
+        {/*<TouchableOpacity style={styles.button} onPress={() => { alert('I was pressed!');}}>
           <Image source={zenImage} style={styles.buttonImage} />
         </TouchableOpacity>
         <Text style={styles.readyText}>I'm ready to relax...</Text>
+        */}
+        <Quote quoteText={'Amazing Quote.'} quoteSource={'Amazing'} />
       </View>
     );
   }
 }
 
-
+const zenImage = require('./assets/zen.png');
 const styles = StyleSheet.create({
   container: {
     flex: 1,
