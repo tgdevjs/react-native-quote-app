@@ -1,16 +1,22 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 import {View, StyleSheet} from 'react-native';
 
 import Quote from './Quote';
 
 class QuoteScreen extends Component {
   render() {
+    const {text, source} = this.props;
     return (
       <View style={styles.container}>
-        <Quote quoteText={'Amazing Quote.'} quoteSource={'Amazing'} />
+        <Quote quoteText={text} quoteSource={source} />
       </View>
     );
   }
+}
+
+QuoteScreen.propTypes = {
+  text: PropTypes.string.isRequired,
+  source: PropTypes.string.isRequired,
 }
 
 const styles = StyleSheet.create({

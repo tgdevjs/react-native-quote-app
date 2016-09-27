@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
 
@@ -18,6 +18,11 @@ class Quote extends Component {
 
     );
   }
+}
+
+Quote.propTypes = {
+  quoteText: PropTypes.string.isRequired,
+  quoteSource: PropTypes.string.isRequired,
 }
 
 const styles = StyleSheet.create({
