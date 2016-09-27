@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Platform} from 'react-native';
 
 
 class Quote extends Component {
@@ -7,13 +7,8 @@ class Quote extends Component {
     const {quoteText, quoteSource} = this.props
     return (
       <View>
-        <Text style={styles.quoteText}>
-          {quoteText}
-        </Text>
-        <Text style={styles.quoteSource}>
-          {quoteSource}
-        </Text>
-
+        <Text style={styles.quoteText}>"{quoteText}"</Text>
+        <Text style={styles.quoteSource}>- {quoteSource}</Text>
       </View>
 
     );
@@ -27,12 +22,17 @@ Quote.propTypes = {
 
 const styles = StyleSheet.create({
   quoteText: {
-    fontSize: 30,
-    color: '#cccccc',
+    fontFamily: (Platform.OS === 'ios') ? 'AvenirNext-Bold' : 'Roboto',
+    fontSize: 36,
+    color: '#ffffff',
+    marginVertical: 30,
   },
   quoteSource: {
+    fontFamily: (Platform.OS === 'ios') ? 'AvenirNext-Bold' : 'Roboto',
     fontSize: 20,
-    color: '#ffffff',
+    color: '#f8f8f8',
+    textAlign: 'right',
+    fontStyle: 'italic',
   }
 });
 

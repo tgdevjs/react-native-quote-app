@@ -1,15 +1,19 @@
 import React, {Component, PropTypes} from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, Image, StyleSheet} from 'react-native';
 
 import Quote from './Quote';
+
+const bgImage = require('./../assets/bg.png');
 
 class QuoteScreen extends Component {
   render() {
     const {text, source} = this.props;
     return (
-      <View style={styles.container}>
-        <Quote quoteText={text} quoteSource={source} />
-      </View>
+      <Image source={bgImage} style={styles.backgroundContainer}>
+        <View style={styles.container}>
+          <Quote quoteText={text} quoteSource={source} />
+        </View>
+      </Image>
     );
   }
 }
@@ -24,8 +28,15 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#161737',
+  },
+  backgroundContainer: {
+    flex: 1,
+    resizeMode: 'cover',
+    width: undefined,
+    height: undefined,
   }
 });
+
+
 
 export default QuoteScreen;
